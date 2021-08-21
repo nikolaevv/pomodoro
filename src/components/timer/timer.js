@@ -24,14 +24,14 @@ const Timer = () => {
                 </IconButton>
 
                 <div className={classes.time}>
-                    <Typography variant="h1" component="h2">
+                    <Typography variant="h1">
                         25:00
                     </Typography>
                 </div>
             </CardContent>
 
             <CardActions className={classes.actions}>
-                <Button lassName={classes.action} size="small">Начать</Button>
+                <Button className={classes.action} size="small">Начать</Button>
             </CardActions>
         </Card>
     );
