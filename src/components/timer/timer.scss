@@ -8,6 +8,10 @@ $colors: (
         background: $color;
         min-width: 275;
         color: #FFF;
-        margin-bottom: 2em;
+        margin-bottom: 2.8em;
+
+        @media screen and (max-width: 900px) {
+            margin-bottom: 1.5em;
+        }
     }
 }
