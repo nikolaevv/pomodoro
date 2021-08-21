@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
-
+import React, {useEffect, useState, useLayoutEffect} from 'react';
+import useSound from 'use-sound';
+import sound from './sound.mp3';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import {decrementTime, invertTimerActivity} from '../../actions';
@@ -18,6 +19,7 @@ import './timer.scss';
 
 const Timer = () => {
     const {timeRemain, isActive, isWorkMode, currentSessionNum} = useSelector((state) => state.timerState);
+    const [play] = useSound(sound);
     const actionTitle = isActive ? "Пауза" : "Начать";
     const mode = isWorkMode ? "В работе" : "Отдых";
 
@@ -25,17 +27,16 @@ const Timer = () => {
     const dispatch = useDispatch();
 
     const onMainButtonClick = () => {
-        if (isActive) {
-            //setActionTitle("Продолжить");
-        } else {
-            //setActionTitle("Пауза")
-        }
-
         dispatch(invertTimerActivity());
     };
 
+    useLayoutEffect(() => {
+        play();
+    }, [isWorkMode]);
+
     useEffect(() => {
-        setInterval(() => dispatch(decrementTime()), 1000)
+        let timerId = setInterval(() => dispatch(decrementTime()), 1000);
+        return () => clearInterval(timerId);
     }, []);
 
     return (

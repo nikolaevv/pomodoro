@@ -70,6 +70,20 @@ module.exports = (env, options) => {
                 ]
             },
 
+            // Loading sounds
+            {
+                test: /\.mp3$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'sounds',
+                            name: '[name]-[sha1:fullhash:7].[ext]'
+                        }
+                    }
+                ]
+            },
+
             // Loading fonts
             {
                 test: /\.(ttf|otf|eot|woff|woff2)$/,
