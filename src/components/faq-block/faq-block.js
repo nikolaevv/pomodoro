@@ -10,18 +10,18 @@ const FaqBlock = () => {
     return (
         <div className="faq-block">
             {
-                blocksData.map((item) => {
+                blocksData.map((item, idx) => {
                     return (
-                        <div className="faq-item">
-                            <Typography className="text-block-title" variant="h5" component="h5">
+                        <div key={idx} className="faq-item">
+                            <Typography className="text-block-title" variant="h5">
                                 {item.question}
                             </Typography>
 
                             {
-                                item.answer.map((paragraph) => {
+                                item.answer.map((paragraph, idx) => {
                                     return (
-                                        <React.Fragment>
-                                            <Typography variant="body2" component="body2">
+                                        <React.Fragment key={idx}>
+                                            <Typography variant="body2">
                                                 {paragraph}
                                             </Typography>
                                             <br/>
