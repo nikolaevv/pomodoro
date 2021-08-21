@@ -1,9 +1,11 @@
-const decrementTime = (recentTime, recentMode, isNowActive, recentSessionNum) => {
-    const minutes = recentTime.getMinutes();
-    const seconds = recentTime.getSeconds() - 1;
+const decrementTime = (timeRemain, isWorkMode, isActive, currentSessionNum, settings) => {
+    const {sessionDuration, shortRestDuration, longRestDuration, longRestPeriodicity, sound} = settings;
+
+    const minutes = timeRemain.getMinutes();
+    const seconds = timeRemain.getSeconds() - 1;
 
     if (minutes === 0 && seconds === 0) {
-        isNowActive = false;
+        isActive = false;
         
         if (isWorkMode === true) {
             let restDuration = shortRestDuration;
@@ -13,37 +15,36 @@ const decrementTime = (recentTime, recentMode, isNowActive, recentSessionNum) =>
                 restDuration = longRestDuration;
             }
 
-            recentTime = new Date(0, 0, 0, 0, restDuration, 0, 0);
+            timeRemain = new Date(0, 0, 0, 0, restDuration, 0, 0);
         }
 
         else {
-            recentTime = new Date(0, 0, 0, 0, sessionDuration, 0, 0);
+            timeRemain = new Date(0, 0, 0, 0, sessionDuration, 0, 0);
         }
 
-        recentMode = !isWorkMode;
+        isWorkMode = !isWorkMode;
         
     } else {
-        if (isNowActive) {
-            recentTime = new Date(0, 0, 0, 0, minutes, seconds, 0);
+        if (isActive) {
+            timeRemain = new Date(0, 0, 0, 0, minutes, seconds, 0);
         }
-        
     }
 
     return {
-        timeRemain: recentTime,
-        isWorkMode: recentMode,
-        currentSessionNum: recentSessionNum,
-        isActive: isNowActive
+        timeRemain,
+        isWorkMode,
+        currentSessionNum,
+        isActive
     }
 };
 
 const updateTimerState = (state = initialState, action) => {
-    const {sessionDuration, shortRestDuration, longRestDuration, longRestPeriodicity, sound} = state.timerSettings;
+    
     const {timeRemain, isWorkMode, currentSessionNum, isActive} = state.timerState;
 
     switch (action.type) {
         case 'DECREMENT_TIME':
-            return decrementTime(timeRemain, isWorkMode, isActive, currentSessionNum);
+            return decrementTime(timeRemain, isWorkMode, isActive, currentSessionNum, state.timerSettings);
 
         case 'INVERT_TIMER_ACTIVITY':
             return {
