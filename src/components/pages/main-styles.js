@@ -5,7 +5,8 @@ const useStyles = makeStyles({
     root: {
       minWidth: 275,
       background: "linear-gradient(#db2426, #c12021)",
-      color: "#FFF"
+      color: "#FFF",
+      marginBottom: "2em"
     },
     bullet: {
       display: 'inline-block',
@@ -20,6 +21,7 @@ const useStyles = makeStyles({
     },
     actions: {
       justifyContent: "center",
+      paddingBottom: "1.5em"
     },
     action: {
       color: "#FFF"

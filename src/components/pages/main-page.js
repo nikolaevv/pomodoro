@@ -8,6 +8,10 @@ import {
     IconButton
 } from '@material-ui/core';
 
+import SettingsIcon from '@material-ui/icons/Settings';
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import FaqBlock from '../faq-block';
+
 import React from 'react';
 import useStyles from './main-styles';
 
@@ -21,20 +25,9 @@ const MainPage = () => {
             <div className="main">
                 <Card className={classes.root}>
                     <CardContent>
-                        <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            Word of the Day
-                        </Typography>
-                        <Typography variant="h5" component="h2">
-                            beent
-                        </Typography>
-                        <Typography className={classes.pos} color="textSecondary">
-                            adjective
-                        </Typography>
-                        <Typography variant="body2" component="p">
-                            well meaning and kindly.
-                            <br />
-                            {'"a benevolent smile"'}
-                        </Typography>
+                        <IconButton>
+                            <SettingsIcon/>
+                        </IconButton>
 
                         <div className={classes.time}>
                             <Typography variant="h1" component="h2">
@@ -47,6 +40,8 @@ const MainPage = () => {
                         <Button lassName={classes.action} size="small">Начать</Button>
                     </CardActions>
                 </Card>
+
+                <FaqBlock/>
             </div>
         </Container>
     );
