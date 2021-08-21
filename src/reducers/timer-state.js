@@ -11,8 +11,10 @@ const decrementTime = (timeRemain, isWorkMode, isActive, currentSessionNum, sett
             let restDuration = shortRestDuration;
 
             if (currentSessionNum === longRestPeriodicity - 1) {
-                recentSessionNum = 0;
+                currentSessionNum = 0;
                 restDuration = longRestDuration;
+            } else {
+                currentSessionNum += 1;
             }
 
             timeRemain = new Date(0, 0, 0, 0, restDuration, 0, 0);
