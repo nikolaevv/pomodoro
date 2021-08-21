@@ -4,6 +4,13 @@ const decrementTime = () => {
     };
 };
 
+const invertTimerActivity = () => {
+    return {
+        type: 'INVERT_TIMER_ACTIVITY'
+    };
+};
+
 export {
-    decrementTime
+    decrementTime,
+    invertTimerActivity
 };

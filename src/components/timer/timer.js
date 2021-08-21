@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 
 import SettingsIcon from '@material-ui/icons/Settings';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
-import {decrementTime} from '../../actions';
+import {decrementTime, invertTimerActivity} from '../../actions';
 import {
     Card, 
     CardContent, 
@@ -41,7 +41,7 @@ const Timer = () => {
             </CardContent>
 
             <CardActions className={classes.actions}>
-                <Button className={classes.action} size="small">Начать</Button>
+                <Button onClick={() => dispatch(invertTimerActivity())} className={classes.action} size="small">Начать</Button>
             </CardActions>
         </Card>
     );

@@ -6,7 +6,7 @@ let date = new Date(0, 0, 0, 0, 25, 0, 0);
 const initialState = {
     timerState: {
         timeRemain: date,
-        isActive: true,
+        isActive: false,
         isWorkMode: true,
         currentSessionNum: 0
     },
