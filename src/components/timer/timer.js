@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import SettingsIcon from '@material-ui/icons/Settings';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import {decrementTime} from '../../actions';
 import {
     Card, 
     CardContent, 
@@ -11,13 +12,19 @@ import {
     IconButton
 } from '@material-ui/core';
 
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import useStyles from './main-styles';
 import './timer.css';
 
 const Timer = () => {
     const classes = useStyles();
-    const timeRemain = useSelector((state) => state.timerState.timeRemain);
+    const dispatch = useDispatch();
+
+    const {timeRemain, isActive, mode, currentSessionNum} = useSelector((state) => state.timerState);
+
+    useEffect(() => {
+        setInterval(() => dispatch(decrementTime()), 1000)
+    }, []);
 
     return (
         <Card className={classes.root}>
