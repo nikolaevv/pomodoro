@@ -1,0 +1,13 @@
+$colors: (
+    true: linear-gradient(#db2426, #c12021),
+    false: linear-gradient(#3498db, #2980b9),
+);
+
+@each $colorname, $color in $colors {
+    .timer-card--#{$colorname} {
+        background: $color;
+        min-width: 275;
+        color: #FFF;
+        margin-bottom: 2em;
+    }
+}
