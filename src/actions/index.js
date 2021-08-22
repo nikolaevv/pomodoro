@@ -10,7 +10,22 @@ const invertTimerActivity = () => {
     };
 };
 
+const changeSetting = (setting) => {
+    return {
+        type: 'CHANGE_SETTING',
+        payload: setting
+    };
+};
+
+const updateTimerSettings = () => {
+    return {
+        type: 'UPDATE_TIMER_SETTINGS',
+    };
+};
+
 export {
     decrementTime,
-    invertTimerActivity
+    invertTimerActivity,
+    changeSetting,
+    updateTimerSettings
 };

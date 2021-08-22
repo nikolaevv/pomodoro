@@ -16,9 +16,10 @@ import {
 import {useSelector, useDispatch} from 'react-redux';
 import useStyles from './timer-styles';
 import './timer.scss';
+import {withRouter} from 'react-router';
 
-const Timer = () => {
-    const {timeRemain, isActive, isWorkMode, currentSessionNum} = useSelector((state) => state.timerState);
+const Timer = ({history}) => {
+    const {timeRemain, isActive, isWorkMode} = useSelector((state) => state.timerState);
     const [play] = useSound(sound);
     const actionTitle = isActive ? "Пауза" : "Начать";
     const mode = isWorkMode ? "В работе" : "Отдых";
@@ -42,7 +43,7 @@ const Timer = () => {
     return (
         <Card className={`timer-card--${isWorkMode}`}>
             <CardContent>
-                <IconButton>
+                <IconButton onClick={() => history.push('/settings')}>
                     <SettingsIcon/>
                 </IconButton>
 
@@ -64,4 +65,4 @@ const Timer = () => {
     );
 };
 
-export default Timer;
+export default withRouter(Timer);

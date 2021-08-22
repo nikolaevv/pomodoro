@@ -1,7 +1,7 @@
 import updateTimerState from './timer-state';
 import updateTimerSettings from './timer-settings';
 
-let date = new Date(0, 0, 0, 0, 25, 0, 0);
+let date = new Date(0, 0, 0, 0, 0, 25, 0);
 
 const initialState = {
     timerState: {

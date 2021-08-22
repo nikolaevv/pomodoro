@@ -10,10 +10,10 @@ const theme = createTheme({
             dark: '#FFF',
         },
         secondary: {
-            main: '#bdc3c7',
-            contrastText: '#bdc3c7',
-            light: '#bdc3c7',
-            dark: '#bdc3c7',
+            main: '#2c3e50',
+            contrastText: '#2c3e50',
+            light: '#2c3e50',
+            dark: '#2c3e50',
         }
 	},
 });

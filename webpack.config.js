@@ -35,6 +35,7 @@ module.exports = (env, options) => {
         mode: isProd ? 'production': isDev && 'development',
 
         output: {
+            publicPath: '/',
             filename: isProd ? 'main-[fullhash:8].js' : undefined
         },
 
@@ -116,6 +117,7 @@ module.exports = (env, options) => {
         plugins: getPlugins(),
 
         devServer: {
+            historyApiFallback: true,
             open: false,
             compress: true,
             hot: true,
