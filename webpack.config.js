@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 module.exports = (env, options) => {
 
@@ -23,7 +24,7 @@ module.exports = (env, options) => {
 
         if (isProd) {
             plugins.push(new MiniCssExtractPlugin({
-                    filename: 'main-[fullhash:8].css'
+                    filename: 'main-[hash:8].css'
                 })
             );
         }
@@ -35,15 +36,15 @@ module.exports = (env, options) => {
         mode: isProd ? 'production': isDev && 'development',
 
         output: {
-            publicPath: '/',
-            filename: isProd ? 'main-[fullhash:8].js' : undefined
+            path: path.resolve(__dirname, 'dist'),
+            filename: isProd ? 'main-[hash:8].js' : undefined
         },
 
         devServer: {
             disableHostCheck: false
         },
 
-        entry: isProd ? [] : [
+        entry: isProd ? undefined : [
             "webpack-dev-server/client?http://localhost:8080/",
             "webpack/hot/only-dev-server",
             "./src"
@@ -54,7 +55,9 @@ module.exports = (env, options) => {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                options: {
+                }
             },
 
             // Loading images
@@ -65,7 +68,7 @@ module.exports = (env, options) => {
                         loader: 'file-loader',
                         options: {
                             outputPath: 'images',
-                            name: '[name]-[sha1:fullhash:7].[ext]'
+                            name: '[name]-[sha1:hash:7].[ext]'
                         }
                     }
                 ]
@@ -79,7 +82,7 @@ module.exports = (env, options) => {
                         loader: 'file-loader',
                         options: {
                             outputPath: 'sounds',
-                            name: '[name]-[sha1:fullhash:7].[ext]'
+                            name: '[name]-[sha1:hash:7].[ext]'
                         }
                     }
                 ]
