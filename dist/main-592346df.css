@@ -1,0 +1,38 @@
+.error-indicator {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.error-indicator img {
+    width: 5em;
+    margin-bottom: 2em;
+}
+.logo {
+    width: 3em;
+}
+
+.MuiToolbar-gutters {
+    padding: 0 !important;
+}
+.text-block-title {
+    margin-bottom: 0.5em !important;
+}
+
+.faq-item {
+    margin-bottom: 1.5em;
+}
+.timer-card--true{background:linear-gradient(#db2426, #c12021);min-width:275;color:#FFF;margin-bottom:3em}@media screen and (max-width: 900px){.timer-card--true{margin-bottom:1.5em}}.timer-card--false{background:linear-gradient(#3498db, #2980b9);min-width:275;color:#FFF;margin-bottom:3em}@media screen and (max-width: 900px){.timer-card--false{margin-bottom:1.5em}}
+
+.main {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+body {
+    margin: 0;
+    background-color: #dfe6e9;
+    overflow-y: scroll;
+}
