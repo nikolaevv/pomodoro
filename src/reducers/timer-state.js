@@ -17,11 +17,11 @@ const decrementTime = (timeRemain, isWorkMode, isActive, currentSessionNum, sett
                 currentSessionNum += 1;
             }
 
-            timeRemain = new Date(0, 0, 0, 0, 0, restDuration, 0);
+            timeRemain = new Date(0, 0, 0, 0, restDuration, 0, 0);
         }
 
         else {
-            timeRemain = new Date(0, 0, 0, 0, 0, sessionDuration, 0);
+            timeRemain = new Date(0, 0, 0, 0, sessionDuration, 0, 0);
         }
 
         isWorkMode = !isWorkMode;
@@ -51,7 +51,7 @@ const updateTimerState = (state = initialState, action) => {
         case 'UPDATE_TIMER_SETTINGS':
             return {
                 ...state.timerState,
-                timeRemain: new Date(0, 0, 0, 0, 0, state.timerSettings.sessionDuration, 0)
+                timeRemain: new Date(0, 0, 0, 0, state.timerSettings.sessionDuration, 0, 0)
             };
 
         case 'INVERT_TIMER_ACTIVITY':

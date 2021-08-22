@@ -36,7 +36,7 @@ module.exports = (env, options) => {
         mode: isProd ? 'production': isDev && 'development',
 
         output: {
-            path: path.resolve(__dirname, 'dist'),
+            path: isProd ? path.resolve(__dirname, 'dist') : '/',
             filename: isProd ? 'main-[hash:8].js' : undefined
         },
 
