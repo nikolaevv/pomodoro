@@ -10,7 +10,7 @@ Why it is required service:
 - It's cross-platform app
 
 ## Install
-You can see demo here: https://pomodoro-778mlnxf8-nikolaevv.vercel.app/
+You can see demo here: https://pomodoro-pink.vercel.app/
 
 - Clone repository using `git clone https://github.com/nikolaevv/pomodoro.git`
 - Move to this respository: `cd pomodoro`
